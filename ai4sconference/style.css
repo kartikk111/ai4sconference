@@ -1,0 +1,588 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-white: #85bf6f;
+    --color-black: #000;
+    --color-grey: #a9a9a9;
+    --color-hover-grey: #d3d3d3;
+    --color-dark-grey: #616161;
+    --color-light-grey: #f5f5f5;
+}
+
+/* Text */
+.body {
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.large-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 1.2em;
+}
+
+.medium-title {
+    font-size: 1.4em;
+    margin-bottom: 1.2em;
+}
+
+.small-title {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 3em;
+}
+
+section
+{
+    padding: 10rem 0 10rem 0;
+}
+
+/* Icons */
+.banner-icons {
+    position: absolute; /* w3 schools does this in a hacky way */
+    bottom: 2rem;
+    left: 2rem;
+}
+
+.banner-icons .small-icon {
+    color: var(--color-grey);
+}
+
+.icon-caption {
+    font-size: 1.1em;
+    margin-top: 2rem;
+}
+
+/* Document and Main Grids */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    z-index: 1;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "main"
+        "footer";
+}
+
+.footer {
+    grid-area: footer;
+    background-color: var(--color-black);
+    text-align: center;
+    padding: 5em 0 3em 0;
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns:1rem repeat(4, 1fr) 1rem;
+    grid-template-areas:
+        "banner banner banner banner banner banner"
+        ". about about about about ."
+        "design design design design design design"
+        ". team team team team ."
+        "stats stats stats stats stats stats"
+        ". work work work work ."
+        "skills skills skills skills skills skills"
+        "pricing pricing pricing pricing pricing pricing"
+        "contact contact contact contact contact contact";
+}
+
+.banner {
+    grid-area: banner;
+    height: 100vh;
+    background-image: url("img/header_bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(50%);
+    color: var(--color-white);
+	margin: 70px 0 0 0;
+}
+
+.banner h1 {
+    text-align: left;
+    margin: 8rem 0 2rem 2rem;
+}
+
+.banner h6 {
+    text-align: left;
+    margin: 0 0 2rem 2rem;
+}
+
+.about {
+    grid-area: about;
+}
+
+.design {
+    grid-area: design;
+}
+
+.team {
+    grid-area: team;
+}
+
+.stats {
+    grid-area: stats;
+}
+
+.work {
+    grid-area: work;
+}
+
+.skills {
+    grid-area: skills;
+}
+
+.pricing {
+    grid-area: pricing;
+}
+
+.contact {
+    grid-area: contact;
+}
+
+.key-features {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+}
+
+.design,
+.skills,
+.contact {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #f1f1f1;
+}
+
+.design div {
+    margin: 0 2rem 0 2rem;
+}
+
+.design figure {
+    margin: 1rem 2rem 0 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-black);
+}
+
+/* Images */
+.fa {
+    color: var(--color-black);
+}
+
+img {
+    width: 100%;
+}
+
+figcaption {
+    font-size: 1.5rem;
+    margin-top: 0.5em;
+}
+
+.greyscale-75 {
+    filter: grayscale(75%);
+}
+
+/* Buttons */
+.dark-button {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 0.5em;
+}
+
+.design .fa,
+.contact .dark-button .fa {
+    color: var(--color-white);
+}
+
+.dark-button:hover,
+.grey-button:hover,
+.light-button:hover {
+    background-color: var(--color-hover-grey);
+}
+
+.light-button {
+    background-color: var(--color-light-grey);
+    color: var(--color-black);
+    padding: 0.5em;
+}
+
+.grey-button {
+    background-color: var(--color-grey);
+    color: var(--color-black);
+    margin-left: 2rem;
+    padding: 1em;
+}
+
+/* Main Navigation */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.main-nav a {
+    color: var(--color-black);
+    display: inline-block;
+    padding: 0.7em;
+}
+
+.main-nav a:hover
+{
+    background-color: var(--color-hover-grey);
+    text-decoration: none;
+    color: var(--color-black);
+}
+
+.main-nav div {
+    display: none;
+}
+
+.main-nav .side-menu {
+    position: fixed;
+    top: 0;
+    left: -40vw;
+    display: flex;
+    flex-flow: column nowrap;
+    z-index: 1000;
+    background-color: var(--color-black);
+    height: 100vh;
+    width: 40vw;
+    transition: all ease-in-out 0.2s;
+}
+
+.main-nav .side-menu a {
+    color: var(--color-white);
+}
+
+.main-nav .side-menu a:hover {
+    color: var(--color-black);
+}
+
+/* Team Grid */
+.team-members {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "john"
+        "anja"
+        "mike"
+        "dan";
+    gap: 0.5em;
+}
+
+.john {
+    grid-area: john;
+}
+
+.anja {
+    grid-area: anja;
+}
+
+.mike {
+    grid-area: mike;
+}
+
+.dan {
+    grid-area: dan;
+}
+
+.team-member {
+    border: 3px solid var(--color-hover-grey);
+}
+
+.team-member > :nth-child(2) {
+    color: var(--color-grey);
+}
+
+.team-member button {
+    width: 100%;
+    border: none;
+}
+
+.team-member figcaption,
+.team-member p {
+    margin: 1rem;
+}
+
+/* Stats */
+.stats
+{
+    padding: 3rem 0 3rem 0;
+}
+
+.stats,
+.pricing {
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+}
+
+.stat-numbers {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+}
+
+.stat-numbers span {
+    font-size: 2.2em;
+}
+
+
+/* Work Grid */
+.work-examples {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "microphone"
+        "phone"
+        "drone"
+        "soundbox"
+        "tablet"
+        "camera"
+        "typewriter"
+        "tableturner";
+    gap: 1em;
+}
+
+.work-examples figure {
+    margin: 0; /* override the setting in _reboot.scss in bootstrap */ 
+}
+
+/* Skills */
+.skills {
+    padding: 5rem 0 5rem 0;
+}
+
+.skills > ul {
+    padding: 0;
+}
+
+.skills li {
+    list-style: none;
+}
+
+.skills i {
+    margin: 1.5em 1.5em 1.5em 0;
+}
+
+.skill {
+    margin: 0 2em 2em 2em;
+}
+
+/* Pricing */
+.pricing-tiers {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 2rem 0 2rem;
+}
+
+.pricing-tier {
+    text-align: center;
+    border: 1px solid var(--color-hover-grey);
+    background-color: var(--color-white);
+    margin: 0.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.pricing-tier li {
+    border-bottom: 1px solid var(--color-hover-grey);
+    color: var(--color-black);
+    padding: 1em;
+}
+
+.pricing-tier li:nth-child(1) {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: 1.5em;
+}
+
+.pricing-tier-pro li:nth-child(1) {
+    background-color: #f44336;
+}
+
+.pricing-tier li:last-child {
+    border-bottom: none;
+    background-color: var(--color-light-grey);
+    padding: 1.5em;
+}
+
+.pricing-tier span {
+    color: var(--color-dark-grey);
+    font-size: 0.6em;
+}
+
+.price {
+    font-size: 1.6em;
+}
+
+/* Contact */
+.contact > div {
+    margin: 0 2rem 1.2rem 2rem;
+}
+
+.contact input,
+.contact textarea {
+    padding: 0.5em;
+    resize: none;
+}
+
+.contact .dark-button {
+    margin-top: 0rem;
+}
+
+.contact form p:first-child {
+    margin-top: 3em;
+}
+
+/* Aligning the right space for icons to line up is a pain when they are of different widths. Ugly code, but it works. */
+.contact-location {
+    padding-left: 1.4em;
+}
+
+.contact-phone {
+    padding-left: 1em;
+}
+
+.contact-email {
+    padding-left: 0.7em;
+}
+
+.contact-form-field {
+    width: 100%;
+}
+
+.message-form-field {
+    height: 5em;
+}
+
+.contact button {
+    margin: 1em 0 4em 0;
+}
+
+/* Footer */
+.footer p,
+.footer div .fa {
+    color: var(--color-white);
+}
+
+.footer span {
+    padding-left: 0.5em;
+}
+
+.footer p a {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+.footer div {
+    margin: 2rem 0 2rem 0;
+}
+
+/* Medium Screen Styles */
+@media screen and (min-width: 600px){
+    .main-nav div {
+        display: flex;
+    }
+
+    .main-nav .hamburger {
+        display: none;
+    }
+
+    .main-nav .side-menu {
+        display: none;
+    }
+
+    .banner .main-title {
+        font-size: 4em;
+    }
+
+    .key-features {
+        flex-flow: row nowrap;
+        text-align: center;
+    }
+
+    .design,
+    .skills {
+        flex-flow: row nowrap;
+    }
+
+    .skill {
+        width: 50%;
+    }
+
+    .team-members {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "john anja"
+            "mike dan";
+    }
+
+    .work-examples {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "microphone phone"
+            "drone soundbox"
+            "tablet camera"
+            "typewriter tableturner";
+    }
+
+    .stat-numbers {
+        flex-flow: row nowrap;
+        justify-content: space-around;
+    }
+
+    .pricing-tiers {
+        flex-flow: row nowrap;
+    }
+
+    /* I think using CSS Grid for "pricing-tier" boxes would have been better as you cannot use flex-grow on the cross-axis (vertical axis) to make the "pricing-tier-pro" box bigger than the others. */
+    .pricing-tier {
+        width: 100%;
+    }
+}
+
+/* Larger Screen Styles */
+@media screen and (min-width: 1000px){
+    .design div {
+        margin-right: 15rem;
+    }
+
+    .team-members {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "john anja mike dan";
+    }
+
+    .work-examples {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "microphone phone drone soundbox"
+            "tablet camera typewriter tableturner";
+    }
+}
